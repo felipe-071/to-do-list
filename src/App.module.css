@@ -1,0 +1,15 @@
+.divBg{
+    height: 20vh;
+    background: var(--gray-700);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.wrapper{
+    margin: auto;
+    width: 50vw;
+    padding: 0 1fr;
+}

@@ -1,4 +1,6 @@
 header{
     display: flex;
     justify-content: center;
+    background-color: var(--gray-700);
+    padding: 3.5rem 0;
 }
