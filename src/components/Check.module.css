@@ -1,0 +1,7 @@
+.format{
+    border-radius: 500px;
+    border: 2px solid var(--blue);
+    width: 1.125rem;
+    height: 1.125rem;
+    background: transparent;
+}
