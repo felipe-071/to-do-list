@@ -4,4 +4,14 @@
     width: 1.125rem;
     height: 1.125rem;
     background: transparent;
+    transition: 0.1s;
+}
+
+.format:hover{
+    cursor: pointer;
+    background: rgba(30, 111, 159, 0.2);
+}
+
+.format:active{
+    background: blue;
 }

@@ -1,12 +1,21 @@
 import { Check } from './Check';
 import styles from './Task.module.css';
+import { Trash } from 'phosphor-react';
 
 export function Task() {
     return (
-        <div className={styles.teste}>
-            <Check />
-            <p className={styles.taskDescription}>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
-            <span>trash</span>
-        </div>
+        <li>
+            <button>
+            
+            </button>
+
+            <p>
+                Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+            </p>
+            <div className={styles.trash}>
+                <Trash size={18} />
+            </div>
+
+        </li>
     )
 }
