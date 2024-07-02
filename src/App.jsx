@@ -24,10 +24,10 @@ function App() {
           <div className={styles.info}>
 
             <div className={styles.created}>
-              <p>Tarefas criadas</p> <span>10</span>
+              <p>Tarefas criadas</p> <span>0</span>
             </div>
             <div className={styles.done}>
-              <p>Concluídas</p> <span>10</span>
+              <p>Concluídas</p> <span>0</span>
             </div>
 
           </div>
