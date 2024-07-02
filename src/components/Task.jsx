@@ -5,16 +5,14 @@ import { Trash } from 'phosphor-react';
 export function Task() {
     return (
         <li>
-            <button>
-            
-            </button>
+            <Check />
 
             <p>
                 Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
             </p>
-            <div className={styles.trash}>
+            <button className={styles.trash}>
                 <Trash size={18} />
-            </div>
+            </button>
 
         </li>
     )

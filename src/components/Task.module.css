@@ -15,31 +15,14 @@ li p{
     font-weight: 300;
 }
 
-li button{
-    width: calc(1.2rem - 2px);
-    height: calc(1.2rem - 2px);
-    min-width: calc(1.2rem - 2px);
-    border-radius: 500px;
-    background: transparent;
-    border: 2px solid var(--blue);
-
-    transition: border-color 0.1s, background-color 0.1s;
-    margin-top: 3px;
-}
-
-li button:hover{
-    border-color: var(--blue-dark);
-    background-color: rgba(30, 111, 159, 0.2);
-    cursor: pointer;
-}
-
-
 .trash{
     display: flex;
     justify-content: center;
     align-items: center;
 
     height: fit-content;
+    background: transparent;
+    border: none;
     border-radius: 4px;
     padding: 4px;
     margin-top: -1px;
@@ -49,12 +32,13 @@ li button:hover{
 .trash:hover{
     background: var(--gray-400); 
     cursor: pointer;
+
+    :only-child{
+        color: var(--danger);
+    }
 }
 
 .trash :only-child{
     color: var(--gray-300);
 }
 
-.trash :only-child:hover{
-    color: var(--danger);
-}

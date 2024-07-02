@@ -1,17 +1,24 @@
-.format{
+.checkAppearence{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 500px;
+    /* border: 2px solid var(--blue); */
     border: 2px solid var(--blue);
-    width: 1.125rem;
-    height: 1.125rem;
+    width: 1.35rem;
+    height: 1.35rem;
     background: transparent;
-    transition: 0.1s;
+    transition: border-color 0.1s, background-color 0.1s;
+    margin-top: 3px;
 }
 
-.format:hover{
+.checkAppearence:hover{
     cursor: pointer;
     background: rgba(30, 111, 159, 0.2);
+    border-color: var(--blue-dark)
 }
 
-.format:active{
-    background: blue;
+
+.checked{
+    background: var(--purple-dark);
 }
