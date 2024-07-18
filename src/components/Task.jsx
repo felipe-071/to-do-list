@@ -2,13 +2,13 @@ import { Check } from './Check';
 import styles from './Task.module.css';
 import { Trash } from 'phosphor-react';
 
-export function Task() {
+export function Task({task}) {
     return (
         <li>
             <Check />
 
             <p>
-                Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+                {task}
             </p>
             <button className={styles.trash}>
                 <Trash size={18} />

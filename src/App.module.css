@@ -14,7 +14,7 @@
     padding: 0 1fr;
 }
 
-.taskInputs{
+form{
     display: grid;
     grid-template-columns: 7fr 1fr;
     gap: 0.5rem;
@@ -32,7 +32,7 @@
     transition: 0.3s ease;
 }
 
-.addTask:valid{
+.addTask:active{
     color: var(--gray-100);
     border-color: var(--purple-dark);
 }
@@ -106,4 +106,30 @@
     line-height: 1.4;
     color: var(--gray-100);
     font-size: 0.875rem;
+}
+
+.taskList{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem
+}
+
+.listIsEmpty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+    border-top: 1px solid var(--gray-400);
+    gap: 1rem
+}
+
+.listIsEmpty img{
+    width: 3.5rem;
+}
+
+.isEmptyWarning{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4
 }
