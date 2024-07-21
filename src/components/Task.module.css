@@ -1,9 +1,7 @@
-li{
+li {
     display: flex;
-    justify-content: space-between;
     gap: 0.75rem;
     padding: 1rem;
-
     background: var(--gray-500);
     border: 1px solid var(--gray-400);
     border-radius: 8px;
@@ -15,13 +13,14 @@ li p{
     font-weight: 300;
     display: flex;
     flex: 1;
+    word-break: break-word;
 }
 
 .trash{
     display: flex;
     justify-content: center;
     align-items: center;
-
+    
     height: fit-content;
     background: transparent;
     border: none;
