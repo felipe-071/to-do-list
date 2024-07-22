@@ -8,15 +8,12 @@ import { useState } from 'react';
 
 
 export default function App() {
-  const [task, setTask] = useState();
+  const [task, setTask] = useState(); 
   const [tasksList, setNewTasksList] = useState([]);
 
   function addNewTask(event) {
     const content = event.target.value
-    setTask(content)
-    // console.log(event.target.value)
-    // const data = new FormData(document.getElementById("tasks-form"))
-    // const content = data.get('addTask')?.toString()    
+    setTask(content)  
   }
 
   function createTask(event) {
@@ -30,7 +27,7 @@ export default function App() {
       return
     }
 
-    setNewTasksList([...tasksList, task])
+    setNewTasksList([task, ...tasksList])
 
     form.reset()
   }
@@ -78,27 +75,33 @@ export default function App() {
 
         </div>
 
-        {tasksList.length > 0 ? (
-          tasksList.map((task) => {
+        <div className={styles.tasksContainer}>
 
-            return (
-              <Task
-                key={task}
-                task={task} />
-            )
-          })
+          {tasksList.length > 0 ? (
 
-        ) : (
-          <div className={styles.listIsEmpty}>
-            <img src={clipBoard} alt="" />
-            <div className={styles.isEmptyWarning}>
-              <span>
-                <b>Você ainda não tem tarefas cadastradas</b> <br />
-                Crie tarefas e organize seus itens a fazer</span>
+            tasksList.map((task) => {
+
+              return (
+                <Task
+                  key={task}
+                  task={task} />
+
+              )
+            })
+
+          ) : (
+            <div className={styles.listIsEmpty}>
+              <img src={clipBoard} alt="" />
+              <div className={styles.isEmptyWarning}>
+                <span>
+                  <b>Você ainda não tem tarefas cadastradas</b> <br />
+                  Crie tarefas e organize seus itens a fazer</span>
+              </div>
+
             </div>
+          )}
 
-          </div>
-        )}
+        </div>
 
 
       </div>
