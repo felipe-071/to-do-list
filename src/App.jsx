@@ -10,7 +10,8 @@ import { useState } from 'react';
 export default function App() {
   const [task, setTask] = useState();
   const [tasksList, setNewTasksList] = useState([]);
-  const [isDeleteTaskModalOpen, setIsDeleteTaskModalOpen] = useState(false)
+
+  // const [isDeleteTaskModalOpen, setIsDeleteTaskModalOpen] = useState(false)
 
 
   const generateKey = (pre) => {
@@ -39,25 +40,6 @@ export default function App() {
 
   return (
     <div>
-
-      {isDeleteTaskModalOpen && (
-        <div className={styles.modalBg}>
-          <div className={styles.modalContainer}>
-            <span>Tem certeza que deseja <b>excluir</b> esta tarefa?</span>
-            <div>
-              <button>Não</button>
-              <button onClick={() => {
-                setNewTasksList(
-                  tasksList.filter(eachTask => eachTask !== task))
-                console.log(task)
-                // setNewTasksList(
-                //     tasksList.filter(teste => teste.index !== task.index)
-                // )
-              }}>Sim</button>
-            </div>
-          </div>
-        </div>
-      )}
       <Header />
 
       <div className={styles.wrapper}>
@@ -110,6 +92,8 @@ export default function App() {
                   task={task}
                   tasksList={tasksList}
                   setNewTasksList={setNewTasksList}
+                  // isDeleteTaskModalOpen={isDeleteTaskModalOpen}
+                  // setIsDeleteTaskModalOpen={setIsDeleteTaskModalOpen}
                 />
               )
             })
@@ -130,6 +114,25 @@ export default function App() {
 
 
       </div>
+
+      {/* {isDeleteTaskModalOpen && (
+        <div className={styles.modalBg}>
+          <div className={styles.modalContainer}>
+            <span>Tem certeza que deseja <b>excluir</b> esta tarefa?</span>
+            <div>
+              <button onClick={setIsDeleteTaskModalOpen(false)}>Não</button>
+              <button onClick={() => {
+                setNewTasksList(
+                  tasksList.filter(eachTask => eachTask !== task))
+                console.log(task)
+                // setNewTasksList(
+                //     tasksList.filter(teste => teste.index !== task.index)
+                // )
+              }}>Sim</button>
+            </div>
+          </div>
+        </div>
+      )} */}
     </div>
   )
 }
