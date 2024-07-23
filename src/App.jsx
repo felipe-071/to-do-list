@@ -10,9 +10,7 @@ import { useState } from 'react';
 export default function App() {
   const [task, setTask] = useState();
   const [tasksList, setNewTasksList] = useState([]);
-
-  // const [isDeleteTaskModalOpen, setIsDeleteTaskModalOpen] = useState(false)
-
+  const [isDeleteTaskModalOpen, setIsDeleteTaskModalOpen] = useState(false)
 
   const generateKey = (pre) => {
     return `${pre}_${new Date().getTime()}`;
@@ -38,12 +36,15 @@ export default function App() {
     form.reset()
   }
 
+  function openDeleteTaskModal() {
+    setIsDeleteTaskModalOpen(true)
+  }
+
   return (
     <div>
       <Header />
 
       <div className={styles.wrapper}>
-
         <form id="tasks-form">
           <input className={styles.addTask}
             type="text"
@@ -83,17 +84,14 @@ export default function App() {
         <div className={styles.tasksContainer}>
 
           {tasksList.length > 0 ? (
-
             tasksList.map((task, index) => {
-
               return (
                 <Task
                   key={generateKey(task)}
                   task={task}
                   tasksList={tasksList}
                   setNewTasksList={setNewTasksList}
-                  // isDeleteTaskModalOpen={isDeleteTaskModalOpen}
-                  // setIsDeleteTaskModalOpen={setIsDeleteTaskModalOpen}
+                  openDeleteTaskModal={openDeleteTaskModal}
                 />
               )
             })
@@ -115,16 +113,18 @@ export default function App() {
 
       </div>
 
-      {/* {isDeleteTaskModalOpen && (
+      {isDeleteTaskModalOpen && (
         <div className={styles.modalBg}>
           <div className={styles.modalContainer}>
             <span>Tem certeza que deseja <b>excluir</b> esta tarefa?</span>
             <div>
-              <button onClick={setIsDeleteTaskModalOpen(false)}>Não</button>
+              <button onClick={() => setIsDeleteTaskModalOpen(false)}>
+                Não
+              </button>
               <button onClick={() => {
                 setNewTasksList(
                   tasksList.filter(eachTask => eachTask !== task))
-                console.log(task)
+                  setIsDeleteTaskModalOpen(false)
                 // setNewTasksList(
                 //     tasksList.filter(teste => teste.index !== task.index)
                 // )
@@ -132,9 +132,8 @@ export default function App() {
             </div>
           </div>
         </div>
-      )} */}
+      )}
+
     </div>
   )
 }
-
-// export default App

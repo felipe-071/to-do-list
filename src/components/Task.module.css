@@ -5,6 +5,7 @@ li {
     background: var(--gray-500);
     border: 1px solid var(--gray-400);
     border-radius: 8px;
+    position: relative;
 }
 
 li p{
