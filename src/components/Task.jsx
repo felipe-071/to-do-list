@@ -3,7 +3,6 @@ import style from './Check.module.css';
 import styles from './Task.module.css';
 import { Trash } from 'phosphor-react';
 
-
 export function Task({ task, setNewTasksList, tasksList }) {
     return (
         <li>
@@ -17,9 +16,6 @@ export function Task({ task, setNewTasksList, tasksList }) {
                     setNewTasksList(
                         tasksList.filter(eachTask => eachTask !== task))
                     console.log(task)
-                    // setNewTasksList(
-                    //     tasksList.filter(teste => teste.index !== task.index)
-                    // )
                 }}>
                 <Trash size={18} />
             </button>
