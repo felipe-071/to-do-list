@@ -1,19 +1,28 @@
 import { Check } from './Check';
+import style from './Check.module.css';
 import styles from './Task.module.css';
 import { Trash } from 'phosphor-react';
 
-export function Task({task}) {
+
+export function Task({ task, setNewTasksList, tasksList }) {
     return (
         <li>
-            <Check />
+            <div>
+                <button className={style.checkAppearence}></button>
+            </div>
 
-            <p>
-                {task}
-            </p>
-            <button className={styles.trash}>
+            <p>{task}</p>
+            <button className={styles.trash} onClick={
+                () => {
+                    setNewTasksList(
+                        tasksList.filter(eachTask => eachTask !== task))
+                    console.log(task)
+                    // setNewTasksList(
+                    //     tasksList.filter(teste => teste.index !== task.index)
+                    // )
+                }}>
                 <Trash size={18} />
             </button>
-
         </li>
     )
 }

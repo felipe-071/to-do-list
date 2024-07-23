@@ -8,12 +8,18 @@ import { useState } from 'react';
 
 
 export default function App() {
-  const [task, setTask] = useState(); 
+  const [task, setTask] = useState();
   const [tasksList, setNewTasksList] = useState([]);
+  const [isDeleteTaskModalOpen, setIsDeleteTaskModalOpen] = useState(false)
+
+
+  const generateKey = (pre) => {
+    return `${pre}_${new Date().getTime()}`;
+  }
 
   function addNewTask(event) {
     const content = event.target.value
-    setTask(content)  
+    setTask(content)
   }
 
   function createTask(event) {
@@ -28,13 +34,30 @@ export default function App() {
     }
 
     setNewTasksList([task, ...tasksList])
-
     form.reset()
   }
 
   return (
     <div>
 
+      {isDeleteTaskModalOpen && (
+        <div className={styles.modalBg}>
+          <div className={styles.modalContainer}>
+            <span>Tem certeza que deseja <b>excluir</b> esta tarefa?</span>
+            <div>
+              <button>Não</button>
+              <button onClick={() => {
+                setNewTasksList(
+                  tasksList.filter(eachTask => eachTask !== task))
+                console.log(task)
+                // setNewTasksList(
+                //     tasksList.filter(teste => teste.index !== task.index)
+                // )
+              }}>Sim</button>
+            </div>
+          </div>
+        </div>
+      )}
       <Header />
 
       <div className={styles.wrapper}>
@@ -79,13 +102,15 @@ export default function App() {
 
           {tasksList.length > 0 ? (
 
-            tasksList.map((task) => {
+            tasksList.map((task, index) => {
 
               return (
                 <Task
-                  key={task}
-                  task={task} />
-
+                  key={generateKey(task)}
+                  task={task}
+                  tasksList={tasksList}
+                  setNewTasksList={setNewTasksList}
+                />
               )
             })
 
