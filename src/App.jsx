@@ -62,9 +62,7 @@ export default function App() {
           />
         </form>
 
-
         <div className={styles.info}>
-
           <div className={styles.created}>
             <p>Tarefas criadas</p>
             <span>{tasksList.length}</span>
@@ -75,14 +73,11 @@ export default function App() {
             ) : (
               <span>0</span>
             )
-
             }
           </div>
-
         </div>
 
         <div className={styles.tasksContainer}>
-
           {tasksList.length > 0 ? (
             tasksList.map((task, index) => {
               return (
@@ -98,7 +93,7 @@ export default function App() {
 
           ) : (
             <div className={styles.listIsEmpty}>
-              <img src={clipBoard} alt="" />
+              <img src={clipBoard} alt="Ícone de nenhuma tarefa adicionada" />
               <div className={styles.isEmptyWarning}>
                 <span>
                   <b>Você ainda não tem tarefas cadastradas</b> <br />
@@ -109,8 +104,6 @@ export default function App() {
           )}
 
         </div>
-
-
       </div>
 
       {isDeleteTaskModalOpen && (
@@ -121,14 +114,13 @@ export default function App() {
               <button onClick={() => setIsDeleteTaskModalOpen(false)}>
                 Não
               </button>
-              <button onClick={() => {
-                setNewTasksList(
-                  tasksList.filter(eachTask => eachTask !== task))
-                  setIsDeleteTaskModalOpen(false)
-                // setNewTasksList(
-                //     tasksList.filter(teste => teste.index !== task.index)
-                // )
-              }}>Sim</button>
+              <button onClick={
+                function() {
+                setNewTasksList(tasksList.filter(eachTask => eachTask !== task))
+                  // console.log(task)
+                  // setIsDeleteTaskModalOpen(false)   
+              }
+              }>Sim</button>
             </div>
           </div>
         </div>
